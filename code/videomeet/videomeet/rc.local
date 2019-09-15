@@ -1,0 +1,49 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Generate the SSH keys if non-existent
+#if [ ! -f /etc/ssh/ssh_host_rsa_key ]
+#then
+    # else ssh service start in dpkg-reconfigure will fail
+ #   systemctl stop ssh.socket||true
+    # dpkg-reconfigure openssh-server
+  #  dpkg --force-confdef --force-confold --configure -a
+#fi
+
+#/usr/local/bin/enable_bt &
+
+sudo echo 39 > /sys/class/gpio/export
+sudo echo out > /sys/class/gpio/gpio39/direction
+sudo echo 0 > /sys/class/gpio/gpio39/value
+
+sudo echo 40 > /sys/class/gpio/export
+sudo echo out > /sys/class/gpio/gpio41/direction
+sudo echo 1 > /sys/class/gpio/gpio41/value
+
+sudo echo 41 > /sys/class/gpio/export
+sudo echo out > /sys/class/gpio/gpio41/direction
+sudo echo 0 > /sys/class/gpio/gpio41/value
+
+sudo echo 42 > /sys/class/gpio/export
+sudo echo out > /sys/class/gpio/gpio42/direction
+sudo echo 0 > /sys/class/gpio/gpio42/value
+
+sudo echo 157 > /sys/class/gpio/export
+sudo echo out > /sys/class/gpio/gpio157/direction
+sudo echo 0 > /sys/class/gpio/gpio157/value
+
+sudo killall myrecv mychdet myvideo
+sleep 0.1
+
+/home/firefly/Desktop/videomeet/start1.sh
+exit 0

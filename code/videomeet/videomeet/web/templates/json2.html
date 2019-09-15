@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编解码器箱配置</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+
+    <script src="/static/js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+            #page{
+                width: 100%;
+                color: black;
+            }
+            .he{
+                width: 100%;
+                height: 150px;
+                background: #EFEFEF;
+                text-align: center;
+                line-height: 30px;
+            }
+            #page1{
+                width: 100%;
+                color: red;
+            }
+       </style>     
+</head>
+<script>
+//     $(function(){
+//          $("#outside_ip").Load("config.json")
+// })
+</script>
+<div id="page">
+     <div class="he">
+        <div style="font-size : 25px">
+         <p>视频传输系统客户端配置</p>
+            <hr>
+        </div>
+
+    <body style="background-image: url(../images/back.jpg);background-repeat: no-repeat;background-size: 100%  400%">
+       <div class="he">
+        IP地址 &#8201 &#8201 &#8201 &#8201 &#8201 &#8200:<input type="text" name="outside_ip" id="outside_ip" style="width: 300px"><br/>
+        </dir>
+        <div class="he">
+        视频服务类型:<input type="text" name="outside_ip" id="outside_ip" style="width: 295px"><br/>
+        </dir>
+        <div class="he">
+             <div class="he">
+        视频目的地址:<input type="text" name="outside_ip" id="outside_ip" style="width: 295px"><br/>
+        </dir>
+        <div class="he">
+        编码器ID &#8201&#8201 &#8201 &#8201:<input type="text" name="encode_id" id="encode_id" style="width:300px"><br/>
+         </dir> 
+        <div class="he">
+        Channel_01:<input type="text" name="decode1_id" id="decode1_id" style="width:300px"><br />
+        </dir>
+        <div class="he">
+        Channel_02:<input type="text" name="decode2_id" id="decode2_id" style="width:300px"><br />
+        </dir>
+        <div class="he">
+        Channel_03:<input type="text" name="decode3_id" id="decode3_id" style="width:300px"><br />
+        </dir>
+        <div class="he">
+        Channel_04:<input type="text" name="decode4_id" id="decode4_id" style="width:300px"><br />
+        </dir>
+        <div class="he">
+        Channel_05:<input type="text" name="decode5_id" id="decode5_id" style="width:300px"><br />
+        </dir>
+        <div class="he">
+        Channel_06:<input type="text" name="decode6_id" id="decode6_id" style="width:300px"><br />
+        </dir>
+        <div class="he">
+        Channel_07:<input type="text" name="decode7_id" id="decode7_id" style="width:300px"><br />
+        </dir>
+        <div class="he">
+        Channel_08:<input type="text" name="decode8_id" id="decode8_id" style="width:300px"><br />
+        </dir>
+        <div class="he">
+        Channel_09:<input type="text" name="decode9_id" id="decode9_id" style="width:300px"><br />
+        </dir>
+        <div class="he">
+        Channel_10:<input type="text" name="decode10_id" id="decode10_id" style="width:300px"><br/>
+        </dir>
+        <div class="he">
+           <button id="btn" style=" background-color:  #FFFFFF1;width:300px height:600px color: #FFFFFF ">      保存   </button><br/>
+        </dir>
+        </dir>
+        <div class="he">
+           <button id="btn" style=" background-color:  #FFFFFF1;width:300px color: #FFFFFF ">  添加视频地址 </button><br/>
+        </dir>
+        <div class="he">
+           <button id="start" style=" background-color:  #FFFFFF1;width:300px color: #FFFFFF ">   开始视频   </button><br>
+        </dir>
+           <div class="he">
+           <button id="config" style=" background-color:  #FFFFFF1;width:300px color: #FFFFFF ">视音频参数配置</button><br>
+        </dir>
+        <div class="he"> 
+        <div id="page1"> 
+            <!-- <a href="http://www.baidu.com" target="_blank" style="width:600px color : white">编码器参数配置</a><br/> -->
+                            </div> 
+                         </div> 
+                         </div>
+            <script>
+                //页面加载   获取全部信息
+                $(function () {
+                    $.ajax({
+                        async: true,
+                        type: "GET",//请求方式
+                        url: "http://127.0.0.1:8000/sendjson",//地址，就是json文件的请求路径
+                        dataType: "json",//数据类型可以为 text xml json  script  jsonp
+                        success: function (result) {//返回的参数就是 action里面所有的有get和set方法的参数
+                            var res = eval(result);
+                            $("#outside_ip").val(res['IP']);
+                            $("#encode_id").val(res['encode_id']);
+                            $("#decode1_id").val(res['decode1_id']);
+                            $("#decode2_id").val(res['decode2_id']);
+                            $("#decode3_id").val(res['decode3_id']);
+                            $("#decode4_id").val(res['decode4_id']);
+                            $("#decode5_id").val(res['decode5_id']);
+                            $("#decode6_id").val(res['decode6_id']);
+                            $("#decode7_id").val(res['decode7_id']);
+                            $("#decode8_id").val(res['decode8_id']);
+                            $("#decode9_id").val(res['decode9_id']);
+                            $("#decode10_id").val(res['decode10_id']);
+
+                        }
+                    });
+                    /*$.get("item.json",function(result){
+                        //result数据添加到box容器中;
+                        addBox(result);
+                    });*/
+                });
+            </script>
+<script language="javascript">
+    function success()
+{
+   alert("保存成功！");
+}
+    function faild()
+{
+    alert("保存失败！");
+}
+</script>
+<script>
+    // $(function(){
+    //     $.ajax(
+    //     {
+    //         url:"config.json",
+    //         type:"GET",
+    //         dataType:"json",
+    //         success:function(data)
+    //         {
+    //             $('#encode_id').val()=data['IP'];
+    //         }
+    //     });
+    // }
+    $(function(){
+
+        $("#start").click(function(){
+            $.ajax({
+                url:'http://127.0.01:8000/start',
+                type:'POST',
+                dataType: 'json',
+                success:function(res){
+                    console.log(res)
+                    console.log(0)
+
+                },
+                error:function (res) {
+                    console.log(res)
+                    console.log(1)
+                }
+            })
+        })
+        $("#btn").click(function(){
+        	var IP=$('#outside_ip').val();
+            var encode_id=$('#encode_id').val();
+            var decode1_id=$('#decode1_id').val();
+            var decode2_id=$('#decode2_id').val();
+            var decode3_id=$('#decode3_id').val();
+            var decode4_id=$('#decode4_id').val();
+            var decode5_id=$('#decode5_id').val();
+            var decode6_id=$('#decode6_id').val();
+            var decode7_id=$('#decode7_id').val();
+            var decode8_id=$('#decode8_id').val();
+            var decode9_id=$('#decode9_id').val();
+            var decode10_id=$('#decode10_id').val();
+            var data= {
+                data: JSON.stringify({
+                    'IP': IP,
+                    'encode_id': encode_id,
+                    'decode1_id':decode1_id,
+                    'decode2_id':decode2_id,
+                    'decode3_id':decode3_id,
+                    'decode4_id':decode4_id,
+                    'decode5_id':decode5_id,
+                    'decode6_id':decode6_id,
+                    'decode7_id':decode7_id,
+                    'decode8_id':decode8_id,
+                    'decode9_id':decode9_id,
+                    'decode10_id':decode10_id,
+                }),
+            }
+                $.ajax({
+                url:'http://127.0.0.1:8000/sendAjax2',
+                type:'POST',
+                data:data,
+                dataType: 'json',
+                success:function(res){
+                    success();
+                    console.log(res)
+                    console.log(0)
+                },
+                error:function (res) {
+                    faild();
+                    console.log(res)
+                    console.log(1)
+                }
+
+            })
+        })
+    })
+</script>
+</body>
+</html>

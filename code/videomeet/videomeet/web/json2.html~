@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="/static/css/index.css">
+
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+   用户名：<input type="text" name="usernam" id="username"><br/>
+  密码：<input type="password" name="password" id="password"><br />
+<button id="btn">点击</button>
+<script>
+    $(function(){
+        $("#btn").click(function(){
+            var username=$('#username').val();
+            var password=$('#password').val();
+            var data= {
+                data: JSON.stringify({
+                    'username': username,
+                    'password': password
+                }),
+            }
+                $.ajax({
+                url:'http://127.0.0.1:8000/sendAjax2',
+                type:'POST',
+                data:data,
+                dataType: 'json',
+                success:function(res){
+                    console.log(res)
+                    console.log(0)
+
+                },
+                error:function (res) {
+                    console.log(res);
+                    console.log(1)
+                }
+
+            })
+        })
+    })
+</script>
+</body>
+</html>

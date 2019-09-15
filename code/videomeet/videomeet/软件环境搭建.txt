@@ -1,0 +1,8 @@
+1、首先安装ffmpeg第三方库支持
+   sudo apt-get install libavformat-dev libavutil-dev 
+2、安装python3环境
+   sudo apt-get install python3.5
+3、安装flask库
+   sudo apt-get install python-pip
+   pip install flask
+4  拷贝软件文件夹

@@ -1,0 +1,12 @@
+{
+	"python":{
+		"python":"/home/lee/anaconda3/bin/python3.6",
+		"pythonExtraPaths":[
+			"/home/lee/anaconda3/lib/python3.6"
+                        "/home/lee/anaconda3/lib/python3.6/site-packages"
+                        "/usr/include/numpy"
+		]
+	}
+}
+SublimeCodeIntel.sublime 的配置
+update

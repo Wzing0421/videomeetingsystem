@@ -1,0 +1,55 @@
+{
+    "cell_length" : 491,
+    "server_nfs_dir": "/home/nfs_dir",
+    "local_store_dir" : "./storage",
+    "DataRecvPort" : 
+	{
+        "cell_recv_port" : 9900,
+        "msg_cell_port" : 60001,
+        "video_cell_port" : 60002,
+        "file_cell_port" : 60003
+	},
+    "ModuleBindPort" : 
+	{
+        "monitor_app_port" : 30001,
+        "monitor_server_port" : 61000,
+        "cell_splitter_port" : 61001,
+        "msg_receiver_port" : 61002,
+        "video_receiver_port" : 61003,
+        "file_receiver_port" : 61005,
+        "file_manager_port" : 61006
+	},
+    "MsgClient" : 
+	{
+        "client_port" : 30002,
+        "client_ip" : "192.168.2.10"
+	},
+    "FileClient" : 
+	{
+        "client_port" : 65100,
+        "client_ip" : "127.0.0.1"
+	},
+    "AppCilent" : 
+	{
+        "client_port" : 30000,
+        "client_ip" : "192.168.2.10"
+	},
+    "StreamServer" : 
+	[
+        {
+            "server_ip" : "162.105.85.39",
+            "stream_port" : 7144,
+            "recv_pack_port" : 62000
+        },
+        {
+            "server_ip" : "192.168.2.10",
+            "stream_port" : 64001,
+            "recv_pack_port" : 62001
+        },
+        {
+            "server_ip" : "192.168.2.10",
+            "stream_port" : 64002,
+            "recv_pack_port" : 62002
+        }
+	]
+}

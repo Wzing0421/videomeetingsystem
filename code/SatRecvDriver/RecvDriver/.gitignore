@@ -1,0 +1,7 @@
+build/
+*.vcxproj*
+Debug/
+Release/
+*.log
+cscope.*
+tags
